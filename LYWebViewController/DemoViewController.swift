@@ -8,30 +8,21 @@
 
 import UIKit
 
-class DemoViewController: LYWebViewController {
+class DemoViewController: MyAppWebViewController {
 
-    
-    var wView:UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "second"
 
-        title = "second page"
-        if let tmp = NSURL(string:"http://www.baidu.com") {
-            webView.loadRequest(NSURLRequest(URL: tmp))
+        let path = NSBundle.mainBundle().pathForResource("base", ofType: "html")
+        var htmlCtn:String?
+        do {
+            htmlCtn = try String(contentsOfFile: path!)
+        } catch {
+            
         }
         
-    }
-    
-    func loadWebView() {
-        wView = UIWebView()
-        view.addSubview(wView)
-        wView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-        wView.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
-        wView.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
-        wView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
-        if let tmp = NSURL(string:"http://www.baidu.com") {
-            wView.loadRequest(NSURLRequest(URL: tmp))
-        }
+        webView.loadHTMLString(htmlCtn!, baseURL: nil)
     }
     
     override func didReceiveMemoryWarning() {

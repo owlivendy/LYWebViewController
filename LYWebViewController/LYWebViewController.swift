@@ -6,7 +6,6 @@
 //  Copyright © 2016年 xiaofeishen. All rights reserved.
 //
 
-import UIKit
 import WebKit
 
 /**
@@ -16,9 +15,12 @@ import WebKit
 public class LYWebViewController: UIViewController, WKNavigationDelegate {
     
     //MARK: public property
+    /// init in ViewDidLoad method
+    public var webView:WKWebView!
+    /// webView configuration
+    public var config:WKWebViewConfiguration?
+    /// show loading bar if or not, defalut value is true.
     public var showLoadingBar:Bool
-    public let webView:WKWebView
-    public var url:NSURL?
     public var loadingBarColor:UIColor?
     
     //MARK: private property
@@ -26,23 +28,21 @@ public class LYWebViewController: UIViewController, WKNavigationDelegate {
     
     //MARK: initializer
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        webView = WKWebView()
         showLoadingBar = true
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    convenience init(url:NSURL) {
-        self.init(nibName: nil, bundle: nil)
-        self.url = url
+    
+    convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, config:WKWebViewConfiguration) {
+        self.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.config = config
     }
     
-    convenience init(urlString:String) {
+    convenience init(config:WKWebViewConfiguration) {
         self.init(nibName: nil, bundle: nil)
-        if let tmp = NSURL(string: urlString) {
-            self.url = tmp
-        }
+        self.config = config
     }
+    
     required public init?(coder aDecoder: NSCoder) {
-        webView = WKWebView()
         showLoadingBar = true
         super.init(coder: aDecoder)
     }
@@ -189,6 +189,7 @@ private class LoadingBar:UIView {
 extension LYWebViewController {
     //MARK: helper
     private func configLoadingBar(appear:Bool) {
+        guard self.showLoadingBar else {return}
         if !appear {
             loadingBar.removeFromSuperview()
             return
@@ -229,6 +230,12 @@ extension LYWebViewController {
      配置webView
      */
     private func configWeb() {
+        if let configTmp = self.config {
+            webView = WKWebView(frame: CGRectZero, configuration: configTmp)
+        }
+        else {
+            webView = WKWebView()
+        }
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
         webView.navigationDelegate = self
         view.addSubview(webView)

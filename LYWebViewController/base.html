@@ -1,0 +1,15 @@
+<html>
+<head>
+<script>
+function btnClick() {
+	var message = {'method':'alert','msg':'button click'}
+	window.webkit.messageHandlers.MyDemoApp.postMessage(message)
+}
+</script>
+</head>
+<body>
+<h1 >this is a title!!!</h1>
+<a href="http://www.baidu.com">www.baidu.com</a>
+<button type="button" onclick=btnClick()>Click me!</button>
+</body>
+</html>

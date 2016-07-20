@@ -13,6 +13,9 @@
 		683ABEF81D311B2E0042C954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 683ABEF61D311B2E0042C954 /* LaunchScreen.storyboard */; };
 		683ABF011D311B5E0042C954 /* LYWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683ABF001D311B5E0042C954 /* LYWebViewController.swift */; };
 		683ABF031D311BE20042C954 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683ABF021D311BE20042C954 /* DemoViewController.swift */; };
+		68A5F86D1D3F547500D6694A /* MyAppWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5F86C1D3F547500D6694A /* MyAppWebViewController.swift */; };
+		68A5F86F1D3F599500D6694A /* GlobalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A5F86E1D3F599500D6694A /* GlobalExtension.swift */; };
+		68A5F8751D3F5E8700D6694A /* base.html in Resources */ = {isa = PBXBuildFile; fileRef = 68A5F8741D3F5E8700D6694A /* base.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		683ABEF91D311B2E0042C954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		683ABF001D311B5E0042C954 /* LYWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYWebViewController.swift; sourceTree = "<group>"; };
 		683ABF021D311BE20042C954 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		68A5F86C1D3F547500D6694A /* MyAppWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAppWebViewController.swift; sourceTree = "<group>"; };
+		68A5F86E1D3F599500D6694A /* GlobalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalExtension.swift; sourceTree = "<group>"; };
+		68A5F8741D3F5E8700D6694A /* base.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = base.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 		683ABEEA1D311B2E0042C954 /* LYWebViewController */ = {
 			isa = PBXGroup;
 			children = (
+				68A5F8761D3F5E8A00D6694A /* Source */,
+				68A5F8721D3F5C6C00D6694A /* AppWebViewController */,
 				683ABEFF1D311B320042C954 /* LYWebViewController */,
-				683ABEEB1D311B2E0042C954 /* AppDelegate.swift */,
 				683ABF021D311BE20042C954 /* DemoViewController.swift */,
+				683ABEEB1D311B2E0042C954 /* AppDelegate.swift */,
+				68A5F86E1D3F599500D6694A /* GlobalExtension.swift */,
 				683ABEF11D311B2E0042C954 /* Main.storyboard */,
 				683ABEF41D311B2E0042C954 /* Assets.xcassets */,
 				683ABEF61D311B2E0042C954 /* LaunchScreen.storyboard */,
@@ -73,6 +82,22 @@
 				683ABF001D311B5E0042C954 /* LYWebViewController.swift */,
 			);
 			name = LYWebViewController;
+			sourceTree = "<group>";
+		};
+		68A5F8721D3F5C6C00D6694A /* AppWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				68A5F86C1D3F547500D6694A /* MyAppWebViewController.swift */,
+			);
+			name = AppWebViewController;
+			sourceTree = "<group>";
+		};
+		68A5F8761D3F5E8A00D6694A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				68A5F8741D3F5E8700D6694A /* base.html */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +161,7 @@
 				683ABEF81D311B2E0042C954 /* LaunchScreen.storyboard in Resources */,
 				683ABEF51D311B2E0042C954 /* Assets.xcassets in Resources */,
 				683ABEF31D311B2E0042C954 /* Main.storyboard in Resources */,
+				68A5F8751D3F5E8700D6694A /* base.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,9 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A5F86F1D3F599500D6694A /* GlobalExtension.swift in Sources */,
 				683ABF031D311BE20042C954 /* DemoViewController.swift in Sources */,
 				683ABF011D311B5E0042C954 /* LYWebViewController.swift in Sources */,
 				683ABEEC1D311B2E0042C954 /* AppDelegate.swift in Sources */,
+				68A5F86D1D3F547500D6694A /* MyAppWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +326,7 @@
 				683ABEFE1D311B2E0042C954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
