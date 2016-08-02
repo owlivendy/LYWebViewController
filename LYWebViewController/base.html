@@ -4,6 +4,7 @@
 function btnClick() {
 	var message = {'method':'alert','msg':'button click'}
 	window.webkit.messageHandlers.MyDemoApp.postMessage(message)
+    return message
 }
 </script>
 </head>

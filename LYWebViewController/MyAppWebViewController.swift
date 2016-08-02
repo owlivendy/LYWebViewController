@@ -33,10 +33,10 @@ class MyAppWebViewController: LYWebViewController, WKScriptMessageHandler,WKUIDe
     override func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         super.webView(webView, didFinishNavigation: navigation)
         after(0.1) {
-//            let script = "btnClick()"
-//            self.webView.evaluateJavaScript(script, completionHandler: { (obj, error) in
-//                
-//            })
+            let script = "btnClick()"
+            self.webView.evaluateJavaScript(script, completionHandler: { (obj, error) in
+                
+            })
         }
     }
     
